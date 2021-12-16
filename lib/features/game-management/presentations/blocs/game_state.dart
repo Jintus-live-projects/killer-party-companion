@@ -9,10 +9,15 @@ class InitialState extends GameState {
   List<Object> get props => [];
 }
 
-class ConfigurationState extends GameState {
-  final List<String> players = [];
+class LoadingState extends GameState {
+  @override
+  List<Object> get props => [];
+}
 
-  ConfigurationState();
+class ConfigurationState extends GameState {
+  final List<String> players;
+
+  const ConfigurationState({required this.players});
 
   @override
   List<Object> get props => [players];
@@ -28,9 +33,10 @@ class DisplayPlayerState extends GameState {
 }
 
 class DisplayTargetState extends GameState {
+  final String killer;
   final String target;
 
-  const DisplayTargetState({required this.target});
+  const DisplayTargetState({required this.killer, required this.target});
 
   @override
   List<Object> get props => [target];
@@ -38,10 +44,8 @@ class DisplayTargetState extends GameState {
 
 class GameInfoState extends GameState {
   final List<String> players;
-  final Map<String, String> game;
-
-  GameInfoState({required this.game}) : players = game.keys.toList();
+  const GameInfoState({required this.players});
 
   @override
-  List<Object> get props => [game];
+  List<Object> get props => [players];
 }
