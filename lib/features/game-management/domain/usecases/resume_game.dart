@@ -5,7 +5,7 @@ class ResumeGame {
 
   const ResumeGame({required this.repository});
 
-  Map<String, String> call() {
-    throw UnimplementedError();
+  Map<String, String>? call() {
+    return repository.getCurrentGame();
   }
 }

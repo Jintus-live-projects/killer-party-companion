@@ -6,6 +6,6 @@ class EndGame {
   const EndGame({required this.repository});
 
   void call() {
-    throw UnimplementedError();
+    repository.resetGame();
   }
 }

@@ -6,6 +6,12 @@ class ProcessPlayersTargets {
   const ProcessPlayersTargets({required this.repository});
 
   Map<String, String> call(List<String> players) {
-    throw UnimplementedError();
+    Map<String, String> game = {};
+    players.shuffle();
+    for (int i = 0; i < players.length; i++) {
+      game[players[i]] = players[(i + 1) % players.length];
+    }
+    repository.saveGame(game);
+    return game;
   }
 }

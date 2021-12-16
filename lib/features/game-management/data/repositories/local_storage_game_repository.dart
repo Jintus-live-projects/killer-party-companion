@@ -7,17 +7,17 @@ class LocalStorageGameRepository implements GameRepository {
   LocalStorageGameRepository({required this.datasource});
 
   @override
-  Map<String, String> getCurrentGame() {
-    throw UnimplementedError();
+  Map<String, String>? getCurrentGame() {
+    return datasource.retrieveGame();
   }
 
   @override
   void saveGame(Map<String, String> game) {
-    throw UnimplementedError();
+    datasource.cacheGame(game);
   }
 
   @override
   void resetGame() {
-    throw UnimplementedError();
+    datasource.resetGame();
   }
 }
