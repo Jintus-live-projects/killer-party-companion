@@ -116,6 +116,8 @@ class GameBloc extends Bloc<GameEvent, GameState> {
         }
       }
     });
+
+    add(const ResumeGameEvent());
   }
 
   List<String> _getPlayersFromGame(Map<String, String> game) {
